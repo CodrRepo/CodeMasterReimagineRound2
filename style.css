@@ -11,10 +11,16 @@
   font-family: noplato;
 }  
 
-header{
+.family-monda{
     font-family: monda;
 }
 
 .item-container::-webkit-scrollbar{
   display: none;
+}
+
+.stroke{
+  -webkit-text-stroke-width: 0.4px;
+  color: transparent;
+  -webkit-text-stroke-color: rgb(255, 255, 255);
 }
