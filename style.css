@@ -1,0 +1,20 @@
+@font-face {
+    font-family: noplato;
+    src: url(./Asserts/font/Noplato-Mono.woff2);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+*{
+  font-family: noplato;
+}  
+
+header{
+    font-family: monda;
+}
+
+.item-container::-webkit-scrollbar{
+  display: none;
+}
