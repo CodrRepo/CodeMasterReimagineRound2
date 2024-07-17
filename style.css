@@ -24,3 +24,8 @@
   color: transparent;
   -webkit-text-stroke-color: rgb(255, 255, 255);
 }
+
+.progress-bar-container{
+  width: calc(100% - 9rem);
+  /* width: 80%; */
+}

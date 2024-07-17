@@ -11,108 +11,106 @@
     <link href="https://fonts.googleapis.com/css2?family=Monda:wght@400..700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.css" />
     <link rel="stylesheet" href="style.css" />
-    <title>Epic Game</title>
+    <title>Epic Games</title>
 </head>
 
 <body>
     <div id="main" class="bg-black min-h-screen w-full">
 
-        <header class="text-white family-monda flex justify-between items-center h-[12vh] border-b-[1px] border-[#575757] px-6">
-            <div class="flex items-center text-2xl h-full">
-                <div class="logo border-r-[1px] pr-6 h-full border-[#575757] flex items-center">
-                    <img class="w-8 object-cover" src="./Asserts/logo.jpg" alt="logo" />
-                </div>
-
-                <h2 class="pl-6">Epic Game</h2>
+        <header class="text-white family-monda flex justify-between items-center h-[8vh] md:h-[12vh] border-b-[1px] border-[#575757]">
+            <div class="logo border-r-[1px] h-full w-[4.5rem] 2xl:w-[6.8rem] border-[#575757] flex items-center justify-center">
+                <img class="w-8 object-cover" src="./Asserts/logo.jpg" alt="logo" />
             </div>
 
-            <div class="flex items-center text-xl gap-3">
-                <h2>Store</h2>
-                <i class="ri-search-2-line text-2xl"></i>
+            <div class="progress-bar-container h-full items-center flex justify-between px-4">
+                <h2 class="text-xl md:text-[1rem] lg:text-xl xl:text-2xl 2xl:text-3xl">Epic Game</h2>
+                <div class="flex items-center text-xl gap-3">
+                    <h2 class="hidden md:block text-xl md:text-[1rem] lg:text-xl xl:text-2xl 2xl:text-3xl">Store</h2>
+                    <i class="ri-search-2-line text-xl md:text-[1rem] lg:text-xl xl:text-2xl 2xl:text-3xl"></i>
+                </div>
+                <i class="ri-user-3-line text-xl md:text-[1rem] lg:text-xl xl:text-2xl 2xl:text-3xl hidden md:block"></i>
             </div>
 
-            <div class="flex items-center text-xl h-full">
-                <i class="ri-user-3-line mr-6 text-2xl"></i>
-
-                <div class="menu flex flex-col items-center justify-center pl-6 h-full border-l-[1px] border-[#575757] gap-2">
-                    <div class="line-1 h-[2.5px] bg-white rounded-full w-7"></div>
-                    <div class="line-2 h-[2.5px] bg-white rounded-full w-7"></div>
-                </div>
+            <div
+                class="menu flex flex-col items-center justify-center w-[4.5rem] 2xl:w-[6.8rem] h-full border-l-[1px] border-[#575757] gap-2">
+                <div class="line-1 h-[2.5px] bg-white rounded-full w-7"></div>
+                <div class="line-2 h-[2.5px] bg-white rounded-full w-7"></div>
             </div>
         </header>
 
-        <section class="hero flex gap-2 mt-8 pl-4">
-            <div class="w-[60%]">
-                <img class="w-full object-cover object-top h-[88vh]" src="./Asserts/game1.jpg" alt="">
-                <h2 class="uppercase text-white text-lg tracking-wider mt-2">assassins-creed-shadows</h2>
+        <section class="hero flex gap-2 mt-8 px-4 md:pl-4 overflow-auto md:overflow-hidden">
+            <div class="w-[95%] shrink-0 md:shrink-1 md:w-[60%]">
+                <img class="w-full hidden md:block object-cover object-[75%_50%] h-[88vh]" src="./Asserts/assassins creed shadow3.avif" alt="">
+                <img class="w-full md:hidden object-cover object-[50%_0%] h-[88vh]" src="./Asserts/assassins-character.avif" alt="">
+                <h2 class="uppercase text-white tracking-tigher text-xl md:text-[1rem] lg:text-xl xl:text-2xl 2xl:text-3xl tracking-wider mt-2 md:mt-1 2xl:mt-3">assassins-creed-shadows</h2>
             </div>
-            <div class="w-[20%]">
+            <div class="w-[75%] shrink-0 md:shrink-1 md:w-[20%]">
                 <img class="w-full h-[88vh] object-cover object-top" src="./Asserts/game2.jpg" alt="">
-                <h2 class="uppercase tracking-tighter text-white text-lg tracking-wider mt-2">black-myth-wukong</h2>
+                <h2 class="uppercase text-white tracking-tigher text-xl md:text-[1rem] lg:text-xl xl:text-2xl 2xl:text-3xl tracking-wider mt-2 md:mt-1 2xl:mt-3">black-myth-wukong</h2>
             </div>
-            <div class="w-[20%]">
+            <div class="w-[75%] shrink-0 md:shrink-1 md:w-[20%]">
                 <img class="w-full h-[88vh] object-cover object-top" src="./Asserts/cyberpunk.jpg" alt="">
-                <h2 class="uppercase tracking-tigher text-white text-lg tracking-wider mt-2">Cyberpunk 2077</h2>
+                <h2 class="uppercase text-white tracking-tigher text-xl md:text-[1rem] lg:text-xl xl:text-2xl 2xl:text-3xl tracking-wider mt-2 md:mt-1 2xl:mt-3">Cyberpunk 2077</h2>
             </div>
         </section>
 
         <section class="new releases px-4 mt-28">
-            <h1 class="uppercase text-6xl text-white">top new releases</h1>
-            <div class="item-container flex mt-8">
-                <div class="item relative h-[50vh] w-[52vh] flex justify-center items-center border-[1px] border-[#575757]">
-                    <!-- <img class="absolute top-0 left-0 h-full w-full z-10" src="./Asserts/ghost of tusiman.jpg" alt=""> -->
-                    <div class="absolute bottom-0 left-0 h-[80%] w-full z-20 bg-gradient-to-t from-[#000] to-[#00000000]"></div>
-                    <h2 class="text-white text-2xl text-center z-30 px-2">Ghost of Tsushima DIRECTOR'S CUT</h2>
+            <h1 class="uppercase text-5xl xl:text-7xl text-white">top new releases</h1>
+            <div class="item-container flex mt-8 gap-4 overflow-auto">
+                <div class="item relative h-[50vh] shrink-0 lg:shrink w-full md:w-[52vh] flex justify-center items-center border-[1px] border-[#575757]">
+                    <img class="absolute top-0 left-0 h-full w-full object-cover object-center z-10" src="./Asserts/ghost of tusiman.jpg" alt="">
+                    <div class="absolute bottom-0 left-0 h-[100%] w-full z-20 bg-gradient-to-t from-[#000] to-[#00000000]"></div>
+                    <h2 class="text-white text-[3.5vh] md:text-[4vh] xl:text-[3.5vh] text-center z-30 px-2">Ghost of Tsushima DIRECTOR'S CUT</h2>
                 </div>
-                <div class="item relative h-[50vh] w-[52vh] flex justify-center items-center border-[1px] border-[#575757]">
-                    <img class="absolute top-0 left-0 h-full w-full z-10" src="./Asserts/ghost of tusiman.jpg" alt="">
-                    <div class="absolute bottom-0 left-0 h-[80%] w-full z-20 bg-gradient-to-t from-[#000] to-[#00000000]"></div>
-                    <h2 class="text-white text-2xl text-center z-30 px-2">Fallout 4</h2>
+                <div class="item relative h-[50vh] shrink-0 lg:shrink w-full md:w-[52vh] flex justify-center items-center border-[1px] border-[#575757]">
+                    <img class="absolute top-0 left-0 h-full w-full object-cover object-center z-10" src="./Asserts/dead by daylight.avif" alt="">
+                    <div class="absolute bottom-0 left-0 h-[100%] w-full z-20 bg-gradient-to-t from-[#000] to-[#00000000]"></div>
+                    <h2 class="text-white text-[3.5vh] md:text-[4vh] xl:text-[3.5vh] text-center z-30 px-2">Dead by Daylight: Tomb Raider</h2>
                 </div>
-                <div class="item relative h-[50vh] w-[52vh] flex justify-center items-center border-[1px] border-[#575757]">
-                    <!-- <img class="absolute top-0 left-0 h-full w-full z-10" src="./Asserts/ghost of tusiman.jpg" alt=""> -->
-                    <div class="absolute bottom-0 left-0 h-[80%] w-full z-20 bg-gradient-to-t from-[#000] to-[#00000000]"></div>
-                    <h2 class="text-white text-2xl text-center z-30 px-2">F1® 24</h2>
+                <div class="item relative h-[50vh] shrink-0 lg:shrink w-full md:w-[52vh] flex justify-center items-center border-[1px] border-[#575757]">
+                    <img class="absolute top-0 left-0 h-full w-full object-cover object-center z-10" src="./Asserts/prince of persia.avif">
+                    <div class="absolute bottom-0 left-0 h-[100%] w-full z-20 bg-gradient-to-t from-[#000] to-[#00000000]"></div>
+                    <h2 class="text-white text-[3.5vh] md:text-[4vh] xl:text-[3.5vh] text-center z-30 px-2">Prince of Persia The Lost Crown</h2>
                 </div>
-                <div class="item relative h-[50vh] w-[52vh] flex justify-center items-center border-[1px] border-[#575757]">
-                    <!-- <img class="absolute top-0 left-0 h-full w-full z-10" src="./Asserts/ghost of tusiman.jpg" alt=""> -->
-                    <div class="absolute bottom-0 left-0 h-[80%] w-full z-20 bg-gradient-to-t from-[#000] to-[#00000000]"></div>
-                    <h2 class="text-white text-2xl text-center z-30 px-2">Manor Lords</h2>
+                <div class="item relative h-[50vh] shrink-0 lg:shrink w-full md:w-[52vh] flex justify-center items-center border-[1px] border-[#575757]">
+                    <img class="absolute top-0 left-0 h-full w-full object-cover object-center z-10" src="./Asserts/game1.jpg" alt="">
+                    <div class="absolute bottom-0 left-0 h-[100%] w-full z-20 bg-gradient-to-t from-[#000] to-[#00000000]"></div>
+                    <h2 class="text-white text-[3.5vh] md:text-[4vh] xl:text-[3.5vh] text-center z-30 px-2">Assassin's Creed Shadows</h2>
                 </div>
             </div>
         </section>
 
         <section class="top Sellers px-4 mt-28">
-            <h1 class="uppercase text-6xl text-white text-right">Top sellers</h1>
-            <div class="item-container flex justify-end mt-8">
-                <div class="item relative h-[50vh] w-[52vh] flex justify-center items-center border-[1px] border-[#575757]">
-                    <img class="absolute top-0 left-0 h-full w-full z-10" src="./Asserts/gta v.jpg" alt="">
-                    <div class="absolute bottom-0 left-0 h-[100%] w-full z-20 bg-gradient-to-t from-[#000000] to-[#00000000]"></div>
-                    <h2 class="text-white text-2xl text-center z-30 px-2">GTA V</h2>
+            <h1 class="uppercase text-5xl xl:text-7xl text-white text-right">Top sellers</h1>
+            <div class="item-container flex mt-8 overflow-auto gap-4">
+                <div class="item relative h-[50vh] shrink-0 lg:shrink w-full md:w-[52vh] flex justify-center items-center border-[1px] border-[#575757]">
+                    <img class="absolute top-0 left-0 h-full w-full object-cover object-center z-10" src="./Asserts/diablo.avif" alt="">
+                    <div class="absolute bottom-0 left-0 h-[100%] w-full z-20 bg-gradient-to-t from-[#000] to-[#00000000]"></div>
+                    <h2 class="text-white text-[3.5vh] md:text-[4vh] xl:text-[3.5vh] text-center z-30 px-2">Diablo IV</h2>
                 </div>
-                <div class="item relative h-[50vh] w-[52vh] flex justify-center items-center border-[1px] border-[#575757]">
-                    <!-- <img class="absolute top-0 left-0 h-full w-full z-10" src="./Asserts/gta v.jpg" alt=""> -->
-                    <div class="absolute bottom-0 left-0 h-[100%] w-full z-20 bg-gradient-to-t from-[#000000] to-[#00000000]"></div>
-                    <h2 class="text-white text-2xl text-center z-30 px-2">Fallout 4</h2>
+                <div class="item relative h-[50vh] shrink-0 lg:shrink w-full md:w-[52vh] flex justify-center items-center border-[1px] border-[#575757]">
+                    <img class="absolute top-0 left-0 h-full w-full object-cover object-[10%_00%] z-10" src="./Asserts/call of duty md 3.avif" alt="">
+                    <div class="absolute bottom-0 left-0 h-[100%] w-full z-20 bg-gradient-to-t from-[#000] to-[#00000000]"></div>
+                    <h2 class="text-white text-[3.5vh] md:text-[4vh] xl:text-[3.5vh] text-center z-30 px-2">CALL OF DURY-MWIII</h2>
                 </div>
-                <div class="item relative h-[50vh] w-[52vh] flex justify-center items-center border-[1px] border-[#575757]">
-                    <!-- <img class="absolute top-0 left-0 h-full w-full z-10" src="./Asserts/gta v.jpg" alt=""> -->
-                    <div class="absolute bottom-0 left-0 h-[100%] w-full z-20 bg-gradient-to-t from-[#000000] to-[#00000000]"></div>
-                    <h2 class="text-white text-2xl text-center z-30 px-2">F1® 24</h2>
+                <div class="item relative h-[50vh] shrink-0 lg:shrink w-full md:w-[52vh] flex justify-center items-center border-[1px] border-[#575757]">
+                    <img class="absolute top-0 left-0 h-full w-full object-cover object-center z-10" src="./Asserts/cyberpunk.jpg" alt="">
+                    <div class="absolute bottom-0 left-0 h-[100%] w-full z-20 bg-gradient-to-t from-[#000] to-[#00000000]"></div>
+                    <h2 class="text-white text-[3.5vh] md:text-[4vh] xl:text-[3.5vh] text-center z-30 px-2">Cyberpunk 2077</h2>
                 </div>
-                <div class="item relative h-[50vh] w-[52vh] flex justify-center items-center border-[1px] border-[#575757]">
-                    <!-- <img class="absolute top-0 left-0 h-full w-full z-10" src="./Asserts/gta v.jpg" alt=""> -->
-                    <div class="absolute bottom-0 left-0 h-[100%] w-full z-20 bg-gradient-to-t from-[#000000] to-[#00000000]"></div>
-                    <h2 class="text-white text-2xl text-center z-30 px-2">Manor Lords</h2>
+                <div class="item relative h-[50vh] shrink-0 lg:shrink w-full md:w-[52vh] flex justify-center items-center border-[1px] border-[#575757]">
+                    <img class="absolute top-0 left-0 h-full w-full object-cover object-center z-10" src="./Asserts/gta v.jpg" alt="">
+                    <div class="absolute bottom-0 left-0 h-[100%] w-full z-20 bg-gradient-to-t from-[#000] to-[#00000000]"></div>
+                    <h2 class="text-white text-[3.5vh] md:text-[4vh] xl:text-[3.5vh] text-center z-30 px-2">GTA V</h2>
                 </div>
             </div>
         </section>
 
-        <section class="trending px-4 mt-28">
-            <h1 class="uppercase text-6xl text-white text-center">trending</h1>
+        <section class="trending mt-32 md:mt-28">
+            <h1 class="uppercase text-5xl xl:text-7xl text-white text-center">trending</h1>
             <div class="item-container bg-zinc-200 flex overflow-auto mt-8 h-[100vh] w-full">
                 <div class="shrink-0 w-[100%]">
-                    <img class="h-full w-full object-cover object-[80% 80%]" src="./Asserts/witcher.webp" alt="">
+                    <img class="h-full w-full object-cover object-[18%_50%] lg:object-center" src="./Asserts/witcher.webp" alt="">
                 </div>
 
                 <div class="shrink-0 w-[100%]">
@@ -125,41 +123,11 @@
             </div>
         </section>
 
-        <section class="free-games px-4 mt-24">
+        <!-- <section class="free-games px-4 mt-24">
             <h1 class="uppercase text-6xl text-white text-center">Free Games</h1>
             <div class="flex flex-wrap justify-center mt-8">
                 <div class="item relative h-[50vh] w-[52vh] flex justify-center items-center border-[1px] border-[#575757]">
-                    <!-- <img class="absolute top-0 left-0 h-full w-full z-10" src="./Asserts/gta v.jpg" alt=""> -->
-                    <div class="absolute bottom-0 left-0 h-[100%] w-full z-20 bg-gradient-to-t from-[#000000] to-[#00000000]"></div>
-                    <h2 class="text-white text-2xl text-center z-30 px-2">GTA V</h2>
-                </div>
-
-                <div class="item relative h-[50vh] w-[52vh] flex justify-center items-center border-[1px] border-[#575757]">
-                    <!-- <img class="absolute top-0 left-0 h-full w-full z-10" src="./Asserts/gta v.jpg" alt=""> -->
-                    <div class="absolute bottom-0 left-0 h-[100%] w-full z-20 bg-gradient-to-t from-[#000000] to-[#00000000]"></div>
-                    <h2 class="text-white text-2xl text-center z-30 px-2">GTA V</h2>
-                </div>
-
-                <div class="item relative h-[50vh] w-[52vh] flex justify-center items-center border-[1px] border-[#575757]">
-                    <!-- <img class="absolute top-0 left-0 h-full w-full z-10" src="./Asserts/gta v.jpg" alt=""> -->
-                    <div class="absolute bottom-0 left-0 h-[100%] w-full z-20 bg-gradient-to-t from-[#000000] to-[#00000000]"></div>
-                    <h2 class="text-white text-2xl text-center z-30 px-2">GTA V</h2>
-                </div>
-
-                <div class="item relative h-[50vh] w-[52vh] flex justify-center items-center border-[1px] border-[#575757]">
-                    <!-- <img class="absolute top-0 left-0 h-full w-full z-10" src="./Asserts/gta v.jpg" alt=""> -->
-                    <div class="absolute bottom-0 left-0 h-[100%] w-full z-20 bg-gradient-to-t from-[#000000] to-[#00000000]"></div>
-                    <h2 class="text-white text-2xl text-center z-30 px-2">GTA V</h2>
-                </div>
-
-                <div class="item relative h-[50vh] w-[52vh] flex justify-center items-center border-[1px] border-[#575757]">
-                    <!-- <img class="absolute top-0 left-0 h-full w-full z-10" src="./Asserts/gta v.jpg" alt=""> -->
-                    <div class="absolute bottom-0 left-0 h-[100%] w-full z-20 bg-gradient-to-t from-[#000000] to-[#00000000]"></div>
-                    <h2 class="text-white text-2xl text-center z-30 px-2">GTA V</h2>
-                </div>
-
-                <div class="item relative h-[50vh] w-[52vh] flex justify-center items-center border-[1px] border-[#575757]">
-                    <!-- <img class="absolute top-0 left-0 h-full w-full z-10" src="./Asserts/gta v.jpg" alt=""> -->
+                    <img class="absolute top-0 left-0 h-full w-full z-10" src="./Asserts/gta v.jpg" alt="">
                     <div class="absolute bottom-0 left-0 h-[100%] w-full z-20 bg-gradient-to-t from-[#000000] to-[#00000000]"></div>
                     <h2 class="text-white text-2xl text-center z-30 px-2">GTA V</h2>
                 </div>
@@ -171,38 +139,68 @@
                 </div>
 
                 <div class="item relative h-[50vh] w-[52vh] flex justify-center items-center border-[1px] border-[#575757]">
-                    <!-- <img class="absolute top-0 left-0 h-full w-full z-10" src="./Asserts/gta v.jpg" alt=""> -->
+                    <img class="absolute top-0 left-0 h-full w-full z-10" src="./Asserts/gta v.jpg" alt="">
                     <div class="absolute bottom-0 left-0 h-[100%] w-full z-20 bg-gradient-to-t from-[#000000] to-[#00000000]"></div>
                     <h2 class="text-white text-2xl text-center z-30 px-2">GTA V</h2>
                 </div>
 
                 <div class="item relative h-[50vh] w-[52vh] flex justify-center items-center border-[1px] border-[#575757]">
-                    <!-- <img class="absolute top-0 left-0 h-full w-full z-10" src="./Asserts/gta v.jpg" alt=""> -->
+                    <img class="absolute top-0 left-0 h-full w-full z-10" src="./Asserts/gta v.jpg" alt="">
                     <div class="absolute bottom-0 left-0 h-[100%] w-full z-20 bg-gradient-to-t from-[#000000] to-[#00000000]"></div>
                     <h2 class="text-white text-2xl text-center z-30 px-2">GTA V</h2>
                 </div>
 
                 <div class="item relative h-[50vh] w-[52vh] flex justify-center items-center border-[1px] border-[#575757]">
-                    <!-- <img class="absolute top-0 left-0 h-full w-full z-10" src="./Asserts/gta v.jpg" alt=""> -->
+                    <img class="absolute top-0 left-0 h-full w-full z-10" src="./Asserts/gta v.jpg" alt="">
                     <div class="absolute bottom-0 left-0 h-[100%] w-full z-20 bg-gradient-to-t from-[#000000] to-[#00000000]"></div>
                     <h2 class="text-white text-2xl text-center z-30 px-2">GTA V</h2>
                 </div>
 
                 <div class="item relative h-[50vh] w-[52vh] flex justify-center items-center border-[1px] border-[#575757]">
-                    <!-- <img class="absolute top-0 left-0 h-full w-full z-10" src="./Asserts/gta v.jpg" alt=""> -->
+                    <img class="absolute top-0 left-0 h-full w-full z-10" src="./Asserts/gta v.jpg" alt="">
                     <div class="absolute bottom-0 left-0 h-[100%] w-full z-20 bg-gradient-to-t from-[#000000] to-[#00000000]"></div>
                     <h2 class="text-white text-2xl text-center z-30 px-2">GTA V</h2>
                 </div>
 
                 <div class="item relative h-[50vh] w-[52vh] flex justify-center items-center border-[1px] border-[#575757]">
-                    <!-- <img class="absolute top-0 left-0 h-full w-full z-10" src="./Asserts/gta v.jpg" alt=""> -->
+                    <img class="absolute top-0 left-0 h-full w-full z-10" src="./Asserts/gta v.jpg" alt="">
+                    <div class="absolute bottom-0 left-0 h-[100%] w-full z-20 bg-gradient-to-t from-[#000000] to-[#00000000]"></div>
+                    <h2 class="text-white text-2xl text-center z-30 px-2">GTA V</h2>
+                </div>
+
+                <div class="item relative h-[50vh] w-[52vh] flex justify-center items-center border-[1px] border-[#575757]">
+                    <img class="absolute top-0 left-0 h-full w-full z-10" src="./Asserts/gta v.jpg" alt="">
+                    <div class="absolute bottom-0 left-0 h-[100%] w-full z-20 bg-gradient-to-t from-[#000000] to-[#00000000]"></div>
+                    <h2 class="text-white text-2xl text-center z-30 px-2">GTA V</h2>
+                </div>
+
+                <div class="item relative h-[50vh] w-[52vh] flex justify-center items-center border-[1px] border-[#575757]">
+                    <img class="absolute top-0 left-0 h-full w-full z-10" src="./Asserts/gta v.jpg" alt="">
+                    <div class="absolute bottom-0 left-0 h-[100%] w-full z-20 bg-gradient-to-t from-[#000000] to-[#00000000]"></div>
+                    <h2 class="text-white text-2xl text-center z-30 px-2">GTA V</h2>
+                </div>
+
+                <div class="item relative h-[50vh] w-[52vh] flex justify-center items-center border-[1px] border-[#575757]">
+                    <img class="absolute top-0 left-0 h-full w-full z-10" src="./Asserts/gta v.jpg" alt=""> 
+                    <div class="absolute bottom-0 left-0 h-[100%] w-full z-20 bg-gradient-to-t from-[#000000] to-[#00000000]"></div>
+                    <h2 class="text-white text-2xl text-center z-30 px-2">GTA V</h2>
+                </div>
+
+                <div class="item relative h-[50vh] w-[52vh] flex justify-center items-center border-[1px] border-[#575757]">
+                    <img class="absolute top-0 left-0 h-full w-full z-10" src="./Asserts/gta v.jpg" alt="">
+                    <div class="absolute bottom-0 left-0 h-[100%] w-full z-20 bg-gradient-to-t from-[#000000] to-[#00000000]"></div>
+                    <h2 class="text-white text-2xl text-center z-30 px-2">GTA V</h2>
+                </div>
+
+                <div class="item relative h-[50vh] w-[52vh] flex justify-center items-center border-[1px] border-[#575757]">
+                    <img class="absolute top-0 left-0 h-full w-full z-10" src="./Asserts/gta v.jpg" alt="">
                     <div class="absolute bottom-0 left-0 h-[100%] w-full z-20 bg-gradient-to-t from-[#000000] to-[#00000000]"></div>
                     <h2 class="text-white text-2xl text-center z-30 px-2">GTA V</h2>
                 </div>
             </div>
-        </section>
+        </section> -->
 
-        <section class="purchase-instructions px-4 mt-24 w-[80%] m-auto">
+        <!-- <section class="purchase-instructions px-4 mt-24 w-[80%] m-auto">
             <h1 class="uppercase text-7xl text-white text-right leading-[70px] tracking-tigher">How to Purchase and Play<br/><span class="stroke text-transparent">games on epic store</span></h1>
             <div class="mt-16">
                 <div class="flex items-center gap-12">
@@ -218,60 +216,14 @@
                     <h2 class="w-[40%] uppercase text-5xl text-white">Download <span class="stroke">and</span> play</h2>
                 </div>
             </div>
-        </section>
+        </section> -->
 
-        <section class="other-categories px-4 -mt-[2vh]">
+        <!-- <section class="other-categories px-4 -mt-[2vh]">
             <div class="flex flex-wrap justify-center mt-8">
                 <div class="items-container flex flex-col items-center">
                     <h2 class="text-3xl text-white mb-2">Featured<br>Discounts</h2>
                     <div class="item relative h-[50vh] w-[52vh] flex justify-center items-center border-[1px] border-[#575757]">
-                        <!-- <img class="absolute top-0 left-0 h-full w-full z-10" src="./Asserts/gta v.jpg" alt=""> -->
-                        <div class="absolute bottom-0 left-0 h-[100%] w-full z-20 bg-gradient-to-t from-[#000000] to-[#00000000]"></div>
-                        <h2 class="text-white text-2xl text-center z-30 px-2">GTA V</h2>
-                    </div>
-    
-                    <div class="item relative h-[50vh] w-[52vh] flex justify-center items-center border-[1px] border-[#575757]">
-                        <!-- <img class="absolute top-0 left-0 h-full w-full z-10" src="./Asserts/gta v.jpg" alt=""> -->
-                        <div class="absolute bottom-0 left-0 h-[100%] w-full z-20 bg-gradient-to-t from-[#000000] to-[#00000000]"></div>
-                        <h2 class="text-white text-2xl text-center z-30 px-2">GTA V</h2>
-                    </div>
-    
-                    <div class="item relative h-[50vh] w-[52vh] flex justify-center items-center border-[1px] border-[#575757]">
-                        <!-- <img class="absolute top-0 left-0 h-full w-full z-10" src="./Asserts/gta v.jpg" alt=""> -->
-                        <div class="absolute bottom-0 left-0 h-[100%] w-full z-20 bg-gradient-to-t from-[#000000] to-[#00000000]"></div>
-                        <h2 class="text-white text-2xl text-center z-30 px-2">GTA V</h2>
-                    </div>
-
-                    <button class="family-monda border-[1px] border-white px-5 mt-4 py-1.5 rounded-xl text-white">MORE</button>
-                </div>
-
-                <div class="items-container flex flex-col items-center">
-                    <h2 class="text-3xl text-white mb-2">Top<br>Upcoming</h2>
-                    <div class="item relative h-[50vh] w-[52vh] flex justify-center items-center border-[1px] border-[#575757]">
-                        <!-- <img class="absolute top-0 left-0 h-full w-full z-10" src="./Asserts/gta v.jpg" alt=""> -->
-                        <div class="absolute bottom-0 left-0 h-[100%] w-full z-20 bg-gradient-to-t from-[#000000] to-[#00000000]"></div>
-                        <h2 class="text-white text-2xl text-center z-30 px-2">GTA V</h2>
-                    </div>
-    
-                    <div class="item relative h-[50vh] w-[52vh] flex justify-center items-center border-[1px] border-[#575757]">
-                        <!-- <img class="absolute top-0 left-0 h-full w-full z-10" src="./Asserts/gta v.jpg" alt=""> -->
-                        <div class="absolute bottom-0 left-0 h-[100%] w-full z-20 bg-gradient-to-t from-[#000000] to-[#00000000]"></div>
-                        <h2 class="text-white text-2xl text-center z-30 px-2">GTA V</h2>
-                    </div>
-    
-                    <div class="item relative h-[50vh] w-[52vh] flex justify-center items-center border-[1px] border-[#575757]">
-                        <!-- <img class="absolute top-0 left-0 h-full w-full z-10" src="./Asserts/gta v.jpg" alt=""> -->
-                        <div class="absolute bottom-0 left-0 h-[100%] w-full z-20 bg-gradient-to-t from-[#000000] to-[#00000000]"></div>
-                        <h2 class="text-white text-2xl text-center z-30 px-2">GTA V</h2>
-                    </div>
-
-                    <button class="family-monda border-[1px] border-white px-5 mt-4 py-1.5 rounded-xl text-white">MORE</button>
-                </div>
-
-                <div class="items-container flex flex-col items-center">
-                    <h2 class="text-3xl text-white mb-2">Most<br>Played</h2>
-                    <div class="item relative h-[50vh] w-[52vh] flex justify-center items-center border-[1px] border-[#575757]">
-                        <!-- <img class="absolute top-0 left-0 h-full w-full z-10" src="./Asserts/gta v.jpg" alt=""> -->
+                        <img class="absolute top-0 left-0 h-full w-full z-10" src="./Asserts/gta v.jpg" alt="">
                         <div class="absolute bottom-0 left-0 h-[100%] w-full z-20 bg-gradient-to-t from-[#000000] to-[#00000000]"></div>
                         <h2 class="text-white text-2xl text-center z-30 px-2">GTA V</h2>
                     </div>
@@ -283,7 +235,53 @@
                     </div>
     
                     <div class="item relative h-[50vh] w-[52vh] flex justify-center items-center border-[1px] border-[#575757]">
-                        <!-- <img class="absolute top-0 left-0 h-full w-full z-10" src="./Asserts/gta v.jpg" alt=""> -->
+                        <img class="absolute top-0 left-0 h-full w-full z-10" src="./Asserts/gta v.jpg" alt="">
+                        <div class="absolute bottom-0 left-0 h-[100%] w-full z-20 bg-gradient-to-t from-[#000000] to-[#00000000]"></div>
+                        <h2 class="text-white text-2xl text-center z-30 px-2">GTA V</h2>
+                    </div>
+
+                    <button class="family-monda border-[1px] border-white px-5 mt-4 py-1.5 rounded-xl text-white">MORE</button>
+                </div>
+
+                <div class="items-container flex flex-col items-center">
+                    <h2 class="text-3xl text-white mb-2">Top<br>Upcoming</h2>
+                    <div class="item relative h-[50vh] w-[52vh] flex justify-center items-center border-[1px] border-[#575757]">
+                        <img class="absolute top-0 left-0 h-full w-full z-10" src="./Asserts/gta v.jpg" alt="">
+                        <div class="absolute bottom-0 left-0 h-[100%] w-full z-20 bg-gradient-to-t from-[#000000] to-[#00000000]"></div>
+                        <h2 class="text-white text-2xl text-center z-30 px-2">GTA V</h2>
+                    </div>
+    
+                    <div class="item relative h-[50vh] w-[52vh] flex justify-center items-center border-[1px] border-[#575757]">
+                        <img class="absolute top-0 left-0 h-full w-full z-10" src="./Asserts/gta v.jpg" alt="">
+                        <div class="absolute bottom-0 left-0 h-[100%] w-full z-20 bg-gradient-to-t from-[#000000] to-[#00000000]"></div>
+                        <h2 class="text-white text-2xl text-center z-30 px-2">GTA V</h2>
+                    </div>
+    
+                    <div class="item relative h-[50vh] w-[52vh] flex justify-center items-center border-[1px] border-[#575757]">
+                        <img class="absolute top-0 left-0 h-full w-full z-10" src="./Asserts/gta v.jpg" alt="">
+                        <div class="absolute bottom-0 left-0 h-[100%] w-full z-20 bg-gradient-to-t from-[#000000] to-[#00000000]"></div>
+                        <h2 class="text-white text-2xl text-center z-30 px-2">GTA V</h2>
+                    </div>
+
+                    <button class="family-monda border-[1px] border-white px-5 mt-4 py-1.5 rounded-xl text-white">MORE</button>
+                </div>
+
+                <div class="items-container flex flex-col items-center">
+                    <h2 class="text-3xl text-white mb-2">Most<br>Played</h2>
+                    <div class="item relative h-[50vh] w-[52vh] flex justify-center items-center border-[1px] border-[#575757]">
+                        <img class="absolute top-0 left-0 h-full w-full z-10" src="./Asserts/gta v.jpg" alt="">
+                        <div class="absolute bottom-0 left-0 h-[100%] w-full z-20 bg-gradient-to-t from-[#000000] to-[#00000000]"></div>
+                        <h2 class="text-white text-2xl text-center z-30 px-2">GTA V</h2>
+                    </div>
+    
+                    <div class="item relative h-[50vh] w-[52vh] flex justify-center items-center border-[1px] border-[#575757]">
+                        <img class="absolute top-0 left-0 h-full w-full z-10" src="./Asserts/gta v.jpg" alt="">
+                        <div class="absolute bottom-0 left-0 h-[100%] w-full z-20 bg-gradient-to-t from-[#000000] to-[#00000000]"></div>
+                        <h2 class="text-white text-2xl text-center z-30 px-2">GTA V</h2>
+                    </div>
+    
+                    <div class="item relative h-[50vh] w-[52vh] flex justify-center items-center border-[1px] border-[#575757]">
+                        <img class="absolute top-0 left-0 h-full w-full z-10" src="./Asserts/gta v.jpg" alt="">
                         <div class="absolute bottom-0 left-0 h-[100%] w-full z-20 bg-gradient-to-t from-[#000000] to-[#00000000]"></div>
                         <h2 class="text-white text-2xl text-center z-30 px-2">GTA V</h2>
                     </div>
@@ -294,19 +292,19 @@
                 <div class="items-container flex flex-col items-center">
                     <h2 class="text-3xl text-white mb-2">Explore<br>New</h2>
                     <div class="item relative h-[50vh] w-[52vh] flex justify-center items-center border-[1px] border-[#575757]">
-                        <!-- <img class="absolute top-0 left-0 h-full w-full z-10" src="./Asserts/gta v.jpg" alt=""> -->
+                        <img class="absolute top-0 left-0 h-full w-full z-10" src="./Asserts/gta v.jpg" alt="">
                         <div class="absolute bottom-0 left-0 h-[100%] w-full z-20 bg-gradient-to-t from-[#000000] to-[#00000000]"></div>
                         <h2 class="text-white text-2xl text-center z-30 px-2">GTA V</h2>
                     </div>
     
                     <div class="item relative h-[50vh] w-[52vh] flex justify-center items-center border-[1px] border-[#575757]">
-                        <!-- <img class="absolute top-0 left-0 h-full w-full z-10" src="./Asserts/gta v.jpg" alt=""> -->
+                        <img class="absolute top-0 left-0 h-full w-full z-10" src="./Asserts/gta v.jpg" alt="">
                         <div class="absolute bottom-0 left-0 h-[100%] w-full z-20 bg-gradient-to-t from-[#000000] to-[#00000000]"></div>
                         <h2 class="text-white text-2xl text-center z-30 px-2">GTA V</h2>
                     </div>
     
                     <div class="item relative h-[50vh] w-[52vh] flex justify-center items-center border-[1px] border-[#575757]">
-                        <!-- <img class="absolute top-0 left-0 h-full w-full z-10" src="./Asserts/gta v.jpg" alt=""> -->
+                        <img class="absolute top-0 left-0 h-full w-full z-10" src="./Asserts/gta v.jpg" alt="">
                         <div class="absolute bottom-0 left-0 h-[100%] w-full z-20 bg-gradient-to-t from-[#000000] to-[#00000000]"></div>
                         <h2 class="text-white text-2xl text-center z-30 px-2">GTA V</h2>
                     </div>
@@ -315,9 +313,9 @@
                 </div>
 
             </div>
-        </section>
+        </section> -->
 
-        <footer class="bg-[#21212161] mt-24 text-white py-8 px-4">
+        <!-- <footer class="bg-[#21212161] mt-24 text-white py-8 px-4">
             <div class="footer-top flex justify-between">
                 <div class="footer-top-left w-[60%]">
                     <h2 class="text-[#B7B7B7] text-xl">Resources</h2>
@@ -390,7 +388,7 @@
                     <h2 class="mt-2"><a href="#">Store Refund Policy</a></h2>
                 </div>
             </div>
-        </footer>
+        </footer> -->
 
     </div>
 
