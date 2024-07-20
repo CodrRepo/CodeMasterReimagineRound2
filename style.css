@@ -15,12 +15,18 @@
     font-family: monda;
 }
 
-.item-container::-webkit-scrollbar{
+.item-container::-webkit-scrollbar, .hero::-webkit-scrollbar{
   display: none;
 }
 
 .stroke{
-  -webkit-text-stroke-width: 0.4px;
+  -webkit-text-stroke-width: 0.7px;
+  color: transparent;
+  -webkit-text-stroke-color: rgb(255, 255, 255);
+}
+
+.heavy-stroke{
+  -webkit-text-stroke-width: 1px;
   color: transparent;
   -webkit-text-stroke-color: rgb(255, 255, 255);
 }
@@ -28,4 +34,21 @@
 .progress-bar-container{
   width: calc(100% - 9rem);
   /* width: 80%; */
+}
+
+.text-marquee{
+  position: relative;
+  animation-name: text-marquee-anime;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes text-marquee-anime {
+  0%{
+    transform: translateX(0);
+  }
+  100%{
+    transform: translateX(-100%);
+  }
 }
