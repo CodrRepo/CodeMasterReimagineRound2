@@ -52,3 +52,8 @@
     transform: translateX(-100%);
   }
 }
+
+.active {
+  cursor: grabbing;
+  cursor: -webkit-grabbing;
+}

@@ -40,33 +40,33 @@ ScrollTrigger.refresh();
 
 let freeGameCardData = [
   {
-    title: "GTA V",
+    title: "more",
     image:
       "https://cdn1.epicgames.com/spt-assets/53ec4985296b4facbe3a8d8d019afba9/pubg-battlegrounds-17zb2.png?h=480&quality=medium&resize=1&w=360",
     rotate: -20,
     origin: "right",
   },
   {
-    title: "GTA V",
+    title: "warframe",
     image:
       "https://cdn1.epicgames.com/offer/244aaaa06bfa49d088205b13b9d2d115/EGS_Warframe_DigitalExtremes_S2_1200x1600-dedea6d1723c52a562acebe279da5ec8?h=480&quality=medium&resize=1&w=360",
     rotate: -10,
     origin: "right",
   },
   {
-    title: "GTA V",
+    title: "diablo",
     image: "./Asserts/diablo.avif",
     rotate: 0,
     origin: "left",
   },
   {
-    title: "GTA V",
+    title: "XDefiant",
     image: "./Asserts/x defiant.avif",
     rotate: 10,
     origin: "left",
   },
   {
-    title: "GTA V",
+    title: "call of duty mw II",
     image: "./Asserts/call of duty cross gen.webp",
     rotate: 20,
     origin: "left",
@@ -86,9 +86,10 @@ function splitText(textClassName) {
     let characters = text.innerHTML.split("");
     text.innerHTML = "";
     characters.forEach((character, charIndex) => {
+      console.log(character);
       text.innerHTML += `<span class="${textClassName}-${index} ${
         index != 0 ? "opacity-0" : "opacity-1"
-      } text-white inline-block">${character}</span>`;
+      } text-white inline-block">${character === " "?"&nbsp": character}</span>`;
     });
   });
 }
@@ -160,7 +161,77 @@ card.forEach((element, index) => {
     });
   });
 });
+ 
 
+
+// -------------- slider --------------
+const slider = document.querySelector('.item-container');
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+
+    slider.addEventListener('mousedown', (e) => {
+      isDown = true;
+      slider.classList.add('active');
+      startX = e.pageX - slider.offsetLeft;
+      console.log(startX);
+      scrollLeft = slider.scrollLeft;
+    });
+
+    slider.addEventListener('mouseleave', () => {
+      isDown = false;
+      slider.classList.remove('active');
+    });
+
+    slider.addEventListener('mouseup', () => {
+      isDown = false;
+      slider.classList.remove('active');
+    });
+
+    slider.addEventListener('mousemove', (e) => {
+      if (!isDown) return;  // stop the fn from running
+      e.preventDefault();
+      const x = e.pageX - slider.offsetLeft;
+      const walk = (x - startX) * 3;
+      slider.scrollLeft = scrollLeft - walk;
+    });
+
+
+
+
+    // gsap
+    // gsap.registerPlugin(ScrollToPlugin)
+    // gsap.to(slider, { duration: 2, scrollTo: {x: 600 }, ease: "power2" });
+
+
+    // slider.addEventListener('mousedown', (e) => {
+    //   isDown = true;
+    //   slider.classList.add('active');
+    //   startX = e.pageX - slider.offsetLeft;
+    //   scrollLeft = slider.scrollLeft;
+    // });
+
+    // slider.addEventListener('mouseleave', () => {
+    //   isDown = false;
+    //   slider.classList.remove('active');
+    // });
+
+    // slider.addEventListener('mouseup', () => {
+    //   isDown = false;
+    //   slider.classList.remove('active');
+    // });
+
+    // slider.addEventListener('mousemove', (e) => {
+    //   if (!isDown) return;  // stop the fn from running
+    //   e.preventDefault();
+    //   const x = e.pageX - slider.offsetLeft;
+    //   const walk = (x - startX * 30);
+    //   // slider.scrollLeft = scrollLeft - walk;
+    //   gsap.to(slider, { duration: 1, scrollTo: {x: slider.scrollLeft - walk}, ease: "none" });
+
+    //   console.log(slider.scrollLeft - walk);
+    // });
 
 // --------------- TRENDING SECTION --------------------
 gsap.to(".trending-item", {
@@ -180,12 +251,12 @@ gsap.to(".trending-item", {
 
 // --------------- FREE GAME CARDS SECTION --------------------
 
-freeGameCardData.forEach((card) => {
+freeGameCardData.forEach((card, index) => {
   gameCardContainer.innerHTML += `<div class="f-game-card rotate-[${card.rotate}deg] origin-bottom-${card.origin} absolute top-0 left-[50%] -translate-x-[50%] shrink-0">
                         <div class="item relative h-[35vh] w-[35vh] md:h-[30vh] lg:h-[58vh]  md:w-[30vh] lg:w-[60vh] flex justify-center items-center border-[1px] border-[#575757]">
-                            <img class="absolute top-0 left-0 h-full w-full object-cover object-center z-10" src="${card.image}" alt="">
+                            <img class="absolute ${index == 0 && 'hidden'} top-0 left-0 h-full w-full object-cover object-center z-10" src="${card.image}" alt="">
                             <div class="absolute bottom-0 left-0 h-[100%] w-full z-20 bg-gradient-to-t from-[#000000] to-[#00000000]"></div>
-                            <h2 class="text-white text-2xl text-center z-30 px-2">${card.title}</h2>
+                            <h2 class="text-white text-[3vh] md:text-[3.9vh] xl:text-[4.3vh] text-center z-30 px-2">${card.title}</h2>
                         </div>
                     </div>`;
 });
@@ -245,3 +316,24 @@ fGameCards.forEach((element, index)=>{
     }
   })
 })
+
+
+
+// ---------------- PURCHASE SECTION ----------------
+let purchaseHeading = document.querySelectorAll(".purchase-heading");
+
+purchaseHeading.forEach((heading, index) => {
+  console.log(heading);
+  gsap.to(heading, {
+    transform: `translateX(120%) ${index == 0 ? 'rotate(-10deg)' : 'rotate(10deg)'}`,
+    scrollTrigger: {
+      trigger: ".purchase-heading-container",
+      scroller: "#main",
+      start: `top ${window.innerWidth > 768? '80%}': '80%'}`,
+      end: `top ${window.innerWidth > 768? '-100%}': '-130%'}`,
+      scrub: 1,
+      duration: 10,
+    }
+  },
+)
+});
