@@ -16,7 +16,7 @@
     font-family: monda;
 }
 
-.item-container::-webkit-scrollbar, .hero::-webkit-scrollbar{
+.item-container::-webkit-scrollbar, .hero::-webkit-scrollbar, .oGameListContainer::-webkit-scrollbar{
   display: none;
 }
 
@@ -61,4 +61,8 @@
 
 .cursor{
   pointer-events: none;
+}
+
+.purchase-heading{
+  word-spacing: -10px;
 }
