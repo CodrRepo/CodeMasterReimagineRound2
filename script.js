@@ -1,41 +1,42 @@
 gsap.registerPlugin(ScrollTrigger);
 
-// Using Locomotive Scroll from Locomotive https://github.com/locomotivemtl/locomotive-scroll
+function applyLocomotive(){
+  const locoScroll = new LocomotiveScroll({
+    el: document.querySelector("#main"),
+    smooth: true,
+  });
+  // each time Locomotive Scroll updates, tell ScrollTrigger to update too (sync positioning)
+  locoScroll.on("scroll", ScrollTrigger.update);
+  
+  // tell ScrollTrigger to use these proxy methods for the "#main" element since Locomotive Scroll is hijacking things
+  ScrollTrigger.scrollerProxy("#main", {
+    scrollTop(value) {
+      return arguments.length
+        ? locoScroll.scrollTo(value, 0, 0)
+        : locoScroll.scroll.instance.scroll.y;
+    }, // we don't have to define a scrollLeft because we're only scrolling vertically.
+    getBoundingClientRect() {
+      return {
+        top: 0,
+        left: 0,
+        width: window.innerWidth,
+        height: window.innerHeight,
+      };
+    },
+    // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
+    pinType: document.querySelector("#main").style.transform
+      ? "transform"
+      : "fixed",
+  });
+  
+  // each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll.
+  ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+  
+  // after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
+  ScrollTrigger.refresh();
+}
 
-const locoScroll = new LocomotiveScroll({
-  el: document.querySelector("#main"),
-  smooth: true,
-});
-// each time Locomotive Scroll updates, tell ScrollTrigger to update too (sync positioning)
-locoScroll.on("scroll", ScrollTrigger.update);
-
-// tell ScrollTrigger to use these proxy methods for the "#main" element since Locomotive Scroll is hijacking things
-ScrollTrigger.scrollerProxy("#main", {
-  scrollTop(value) {
-    return arguments.length
-      ? locoScroll.scrollTo(value, 0, 0)
-      : locoScroll.scroll.instance.scroll.y;
-  }, // we don't have to define a scrollLeft because we're only scrolling vertically.
-  getBoundingClientRect() {
-    return {
-      top: 0,
-      left: 0,
-      width: window.innerWidth,
-      height: window.innerHeight,
-    };
-  },
-  // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
-  pinType: document.querySelector("#main").style.transform
-    ? "transform"
-    : "fixed",
-});
-
-// each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll.
-ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
-
-// after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
-ScrollTrigger.refresh();
-
+applyLocomotive();
 
 
 let freeGameCardData = [
@@ -77,6 +78,7 @@ let gameCardContainer = document.querySelector(".free-gc");
 let hero = document.querySelector(".hero");
 let heroItems = document.querySelectorAll(".hero-item");
 let card = document.querySelectorAll(".item");
+let gameVideo = document.querySelector(".game-video");
 
 // Sperate Text into span
 function splitText(textClassName) {
@@ -93,6 +95,23 @@ function splitText(textClassName) {
     });
   });
 }
+
+
+// ------------ CURSOR -----------------
+let cursors = document.querySelectorAll(".cursor");
+
+window.addEventListener("mousemove", (event)=>{
+  cursors.forEach((cursor, index) => {
+    gsap.to(cursor, {
+      top: event.clientY,
+      left: event.clientX,
+      duration: ((index)/cursors.length) *0.22,
+      ease:"cubic-bezier(0.5, 1, 0.89, 1)",
+    })
+  });
+});
+
+
 
 // ----------- HERO SECTION ------------------------
 splitText("hero-text");
@@ -131,6 +150,7 @@ heroItems.forEach((heroItem, index) => {
 });
 
 // ----------- ITEM SECTION ------------------------
+
 card.forEach((element, index) => {
   element.addEventListener("mousemove", (e) => {
     const rect = element.getBoundingClientRect();
@@ -165,73 +185,41 @@ card.forEach((element, index) => {
 
 
 // -------------- slider --------------
-const slider = document.querySelector('.item-container');
-    let isDown = false;
-    let startX;
-    let scrollLeft;
+const sliders = document.querySelectorAll('.item-container');
+
+sliders.forEach((slider) => {
+  let isDown = false;
+  let startX;
+  let scrollLeft;
 
 
-    slider.addEventListener('mousedown', (e) => {
-      isDown = true;
-      slider.classList.add('active');
-      startX = e.pageX - slider.offsetLeft;
-      console.log(startX);
-      scrollLeft = slider.scrollLeft;
-    });
+  slider.addEventListener('mousedown', (e) => {
+    isDown = true;
+    slider.classList.add('active');
+    startX = e.pageX - slider.offsetLeft;
+    console.log(startX);
+    scrollLeft = slider.scrollLeft;
+  });
 
-    slider.addEventListener('mouseleave', () => {
-      isDown = false;
-      slider.classList.remove('active');
-    });
+  slider.addEventListener('mouseleave', () => {
+    isDown = false;
+    slider.classList.remove('active');
+  });
 
-    slider.addEventListener('mouseup', () => {
-      isDown = false;
-      slider.classList.remove('active');
-    });
+  slider.addEventListener('mouseup', () => {
+    isDown = false;
+    slider.classList.remove('active');
+  });
 
-    slider.addEventListener('mousemove', (e) => {
-      if (!isDown) return;  // stop the fn from running
-      e.preventDefault();
-      const x = e.pageX - slider.offsetLeft;
-      const walk = (x - startX) * 3;
-      slider.scrollLeft = scrollLeft - walk;
-    });
+  slider.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - slider.offsetLeft;
+    const walk = (x - startX) * 3;
+    slider.scrollLeft = scrollLeft - walk;
+  });
+})
 
-
-
-
-    // gsap
-    // gsap.registerPlugin(ScrollToPlugin)
-    // gsap.to(slider, { duration: 2, scrollTo: {x: 600 }, ease: "power2" });
-
-
-    // slider.addEventListener('mousedown', (e) => {
-    //   isDown = true;
-    //   slider.classList.add('active');
-    //   startX = e.pageX - slider.offsetLeft;
-    //   scrollLeft = slider.scrollLeft;
-    // });
-
-    // slider.addEventListener('mouseleave', () => {
-    //   isDown = false;
-    //   slider.classList.remove('active');
-    // });
-
-    // slider.addEventListener('mouseup', () => {
-    //   isDown = false;
-    //   slider.classList.remove('active');
-    // });
-
-    // slider.addEventListener('mousemove', (e) => {
-    //   if (!isDown) return;  // stop the fn from running
-    //   e.preventDefault();
-    //   const x = e.pageX - slider.offsetLeft;
-    //   const walk = (x - startX * 30);
-    //   // slider.scrollLeft = scrollLeft - walk;
-    //   gsap.to(slider, { duration: 1, scrollTo: {x: slider.scrollLeft - walk}, ease: "none" });
-
-    //   console.log(slider.scrollLeft - walk);
-    // });
 
 // --------------- TRENDING SECTION --------------------
 gsap.to(".trending-item", {
@@ -296,7 +284,6 @@ fGameCards.forEach((element, index)=>{
       let currentRotateValue = freeGameCardData[subIndex].rotate;
       let currentOriginValue = freeGameCardData[subIndex].origin;
       element.addEventListener('mouseenter', (event)=>{
-        console.log(index, subIndex);
         gsap.to(elem, {
           transformOrigin: `${currentOriginValue} bottom`,
           rotate: `${currentRotateValue+70}deg`,
@@ -323,17 +310,30 @@ fGameCards.forEach((element, index)=>{
 let purchaseHeading = document.querySelectorAll(".purchase-heading");
 
 purchaseHeading.forEach((heading, index) => {
-  console.log(heading);
   gsap.to(heading, {
     transform: `translateX(120%) ${index == 0 ? 'rotate(-10deg)' : 'rotate(10deg)'}`,
     scrollTrigger: {
       trigger: ".purchase-heading-container",
       scroller: "#main",
-      start: `top ${window.innerWidth > 768? '80%}': '80%'}`,
-      end: `top ${window.innerWidth > 768? '-100%}': '-130%'}`,
+      start: `top ${window.innerWidth > 768? '90%}': '80%'}`,
+      end: `top ${window.innerWidth > 768? '-350%}': '-130%'}`,
       scrub: 1,
       duration: 10,
     }
   },
 )
 });
+
+gsap.to(gameVideo, {
+  scrollTrigger: {
+    trigger: gameVideo,
+    scroller: "#main",
+    start: `top 120%`,
+    end: `top -100%`,
+    onEnter: () => {gameVideo.play()},
+      onLeave: () => gameVideo.pause(),
+      onEnterBack: () => gameVideo.play(),
+      onLeaveBack: () => gameVideo.pause(),
+
+  },
+})

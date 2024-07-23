@@ -5,6 +5,7 @@
 
   html {
     scroll-behavior: smooth;
+    cursor: none;
   }
 
 *{
@@ -56,4 +57,8 @@
 .active {
   cursor: grabbing;
   cursor: -webkit-grabbing;
+}
+
+.cursor{
+  pointer-events: none;
 }
