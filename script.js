@@ -1,7 +1,6 @@
 gsap.registerPlugin(ScrollTrigger);
 
-function applyLocomotive(){
-  const locoScroll = new LocomotiveScroll({
+const locoScroll = new LocomotiveScroll({
     el: document.querySelector("#main"),
     smooth: true,
   });
@@ -34,10 +33,9 @@ function applyLocomotive(){
   
   // after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
   ScrollTrigger.refresh();
-}
 
-applyLocomotive();
 
+let mainPage = document.querySelector("#main");
 let gameCardContainer = document.querySelector(".free-gc");
 let hero = document.querySelector(".hero");
 let heroItems = document.querySelectorAll(".hero-item");
@@ -137,13 +135,65 @@ function splitText(textClassName) {
     let characters = text.innerHTML.split("");
     text.innerHTML = "";
     characters.forEach((character, charIndex) => {
-      console.log(character);
-      text.innerHTML += `<span class="${textClassName}-${index} ${
-        index != 0 ? "opacity-0" : "opacity-1"
-      } text-white inline-block">${character === " "?"&nbsp": character}</span>`;
+      text.innerHTML += `<span class="${textClassName}-${index} text-white inline-block">${character === " "?"&nbsp": character}</span>`;
     });
   });
 }
+
+
+//  ------------------ LOADER ------------------
+let digits = document.querySelectorAll(".digit");
+let t1 = gsap.timeline();
+let delayTime = 0;
+digits.forEach((digit, index) => {
+  gsap.to(digit, {
+    opacity: 1,
+    duration: 0.2,
+    delay: delayTime,
+  })
+
+  index>0 && gsap.to(digits[index-1], {
+    opacity: 0,
+    duration: 0.2,
+    delay: delayTime,
+  })
+
+  delayTime += 0.3;
+});
+
+gsap.to(".loader-text", {
+  transform: "translateX(-100%)",
+  delay: delayTime+0.7,
+  duration: 0.5,
+})
+
+console.log(digits[4].querySelector("span"));
+let digit4 = digits[4].querySelector("span");
+gsap.to(digit4, {
+  transform: "translateX(-100%)",
+  delay: delayTime+0.7,
+  duration: 0.5,
+})
+
+// ---------- HIDE LOADER--------------
+const hideLoader = setTimeout(()=>{
+  const loader = document.querySelector("#loader");
+
+  gsap.from(mainPage, {
+    onStart: ()=>{
+      loader.style.display = "none";
+    },
+
+    y: 400,
+    duration: 0.7,
+    ease: "power4.in-out",
+
+    onComplete: ()=>{
+      document.querySelector("header").style.borderColor = 'black black #575757 black';
+    },
+  })
+}, 3400)
+
 
 
 // ------------ CURSOR -----------------
@@ -162,19 +212,108 @@ window.addEventListener("mousemove", (event)=>{
 
 
 
+
+// ---------------- HAMBURGER MENU ----------------
+
+splitText("menu-option");
+
+let menuBtn = document.querySelector(".menu");
+let menuOptions = document.querySelectorAll(".menu-option");
+let isActive = false;
+let scrollPosition = 0;
+
+function disableScroll() {
+  scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+  document.body.style.position = "fixed";
+  document.body.style.top = `-${scrollPosition}px`;
+  document.body.style.overflow = "hidden";
+  document.body.style.width = "100%";
+
+  locoScroll.stop();
+}
+
+// Function to enable scrolling
+function enableScroll() {
+  document.body.style.position = "";
+  document.body.style.top = "";
+  document.body.style.overflow = "";
+  document.body.style.width = "";
+  window.scrollTo(0, scrollPosition);
+
+  locoScroll.start();
+}
+
+menuBtn.addEventListener("click", (event) => {
+  isActive = !isActive
+  isActive? disableScroll(): enableScroll();
+
+  gsap.to(".hamburger-menu", {
+    transform: `${isActive? "translateX(0%)": "translatex(100%)"}`,
+    ease: CustomEase.create("custom","0.76, 0, 0.24, 1"),
+    duration: 0.7,
+  })
+
+  isActive && gsap.from(".menu-option", {
+    x: 500,
+    duration: 1,
+    opacity: 0,
+  })
+
+  gsap.to((".menu-line"), {
+    onStart: ()=>{
+      gsap.to(`.menu`, {
+        rotate: `${isActive ? "360deg" : "0deg"}`,
+        duration: 0.7,
+      });
+    },
+
+    rotate: `${isActive? "45deg": "0deg"}`,
+    ease: CustomEase.create("smooth","0.16, 1, 0.3, 1"),
+    duration: 0.7,
+  })
+});
+
+menuOptions.forEach((element, index)=>{
+  element.addEventListener("mouseenter", ()=>{
+    gsap.to(`.menu-option-${index}`,{
+      x: 100,
+      duration: 0.8,
+      ease: CustomEase.create("smooth","0.16, 1, 0.3, 1"),
+    });
+  })
+
+  element.addEventListener("mouseleave", ()=>{
+    gsap.to(`.menu-option-${index}`,{
+      x: 0,
+      duration: 0.8,
+      ease: CustomEase.create("smooth","0.16, 1, 0.3, 1"),
+    });
+  })
+});
+
+
+
+
 // ----------- HERO SECTION ------------------------
 splitText("hero-text");
 
 let currentElementIndex = 0;
 heroItems.forEach((heroItem, index) => {
+  if(index != 0){
+    gsap.to(`.hero-text-${index}`,{
+      opacity: 0,
+    });
+  }
+
   heroItem.addEventListener("mouseenter", (event) => {
+    
+
     heroItems.forEach((heroItem, heroIndex) => {
       if (index !== heroIndex) {
         gsap.to(heroItem, {
           onStart: () => {
             gsap.to(`.hero-text-${heroIndex}`, {
               opacity: 0,
-              y: 15,
               stagger: 0.02,
             });
           },
@@ -187,8 +326,7 @@ heroItems.forEach((heroItem, index) => {
     gsap.to(heroItem, {
       onStart: () => {
         gsap.to(`.hero-text-${index}`, {
-          opacity: 1,
-          y: 0,
+          opacity: '1',
           stagger: 0.02,
         });
       },
@@ -202,7 +340,7 @@ heroItems.forEach((heroItem, index) => {
 // ------------------------- OTHER LINKS ------------------------
 otherCategoriesData.forEach((element, index)=>{
   let headingArr = element.heading.split(" ");
-  otherCategories.innerHTML += `<div class="flex flex-col md:flex-row text-white items-center h-[50vh] w-full md:h-[30vh] lg:h-[35vh] lg:w-[85%] m-auto mt-16 md:mt-0">
+  otherCategories.innerHTML += `<div class="flex flex-col md:flex-row text-white items-center h-[50vh] w-full md:h-[30vh] lg:h-[35vh] lg:w-[85%] m-auto  mt-7 md:mt-0">
                 <div class="text-5xl md:text-4xl lg:text-3xl 2xl:text-5xl flex flex-col items-center md:items-start leading-[3.2rem] md:leading-none text-white mb-2  w-[30%]">
                   <h2>${headingArr[0]}<h2/>
                   <h2>${headingArr[1]}<h2/>

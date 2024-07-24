@@ -6,6 +6,7 @@
   html {
     scroll-behavior: smooth;
     cursor: none;
+    background-color: black;
   }
 
 *{
@@ -65,4 +66,26 @@
 
 .purchase-heading{
   word-spacing: -10px;
+}
+
+
+.text-clip {
+  background: url('./Asserts/call\ of\ duty\ cross\ gen.webp') no-repeat center center;
+  background-size: 150%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: #ffffff;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-position-x: right;
+
+}
+
+.light::after{
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0%;
+  height: 100%;
+  width: 100%;
 }
