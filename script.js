@@ -36,6 +36,7 @@ const locoScroll = new LocomotiveScroll({
 
 
 let mainPage = document.querySelector("#main");
+let cursors = document.querySelectorAll(".cursor");
 let gameCardContainer = document.querySelector(".free-gc");
 let hero = document.querySelector(".hero");
 let heroItems = document.querySelectorAll(".hero-item");
@@ -140,88 +141,6 @@ function splitText(textClassName) {
   });
 }
 
-
-//  ------------------ LOADER ------------------
-// let digits = document.querySelectorAll(".digit");
-// let t1 = gsap.timeline();
-// let delayTime = 0;
-// digits.forEach((digit, index) => {
-//   gsap.to(digit, {
-//     opacity: 1,
-//     duration: 0.2,
-//     delay: delayTime,
-//   })
-
-//   index>0 && gsap.to(digits[index-1], {
-//     opacity: 0,
-//     duration: 0.2,
-//     delay: delayTime,
-//   })
-
-//   delayTime += 0.3;
-// });
-
-// gsap.to(".loader-text", {
-//   transform: "translateX(-100%)",
-//   delay: delayTime+0.7,
-//   duration: 0.5,
-// })
-
-// console.log(digits[4].querySelector("span"));
-// let digit4 = digits[4].querySelector("span");
-// gsap.to(digit4, {
-//   transform: "translateX(-100%)",
-//   delay: delayTime+0.7,
-//   duration: 0.5,
-// })
-
-// ---------- HIDE LOADER--------------
-// const hideLoader = setTimeout(()=>{
-//   const loader = document.querySelector("#loader");
-
-//   gsap.from(mainPage, {
-//     onStart: ()=>{
-//       loader.style.display = "none";
-//     },
-
-//     y: 400,
-//     duration: 0.7,
-//     ease: "power4.in-out",
-
-//     onComplete: ()=>{
-//       document.querySelector("header").style.borderColor = 'black black #575757 black';
-//     },
-//   })
-// }, 3400)
-
-
-
-// ------------ CURSOR -----------------
-let cursors = document.querySelectorAll(".cursor");
-
-window.addEventListener("mousemove", (event)=>{
-  cursors.forEach((cursor, index) => {
-    gsap.to(cursor, {
-      top: event.clientY,
-      left: event.clientX,
-      duration: ((index)/cursors.length) *0.22,
-      ease:"cubic-bezier(0.5, 1, 0.89, 1)",
-    })
-  });
-});
-
-
-
-
-// ---------------- HAMBURGER MENU ----------------
-
-splitText("menu-option");
-
-let menuBtn = document.querySelector(".menu");
-let menuOptions = document.querySelectorAll(".menu-option");
-let isActive = false;
-let scrollPosition = 0;
-
 function disableScroll() {
   scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
   document.body.style.position = "fixed";
@@ -242,6 +161,87 @@ function enableScroll() {
 
   locoScroll.start();
 }
+let scrollPosition = 0;
+disableScroll();
+
+//  ------------------ LOADER ------------------
+let digits = document.querySelectorAll(".digit");
+let t1 = gsap.timeline();
+let delayTime = 0;
+digits.forEach((digit, index) => {
+  gsap.to(digit, {
+    opacity: 1,
+    duration: 0.2,
+    delay: delayTime,
+  })
+
+  index>0 && gsap.to(digits[index-1], {
+    opacity: 0,
+    duration: 0.2,
+    delay: delayTime,
+  })
+
+  delayTime += 0.3;
+});
+
+gsap.to(".loader-text", {
+  transform: "translateX(-100%)",
+  delay: delayTime+0.7,
+  duration: 0.5,
+})
+
+console.log(digits[4].querySelector("span"));
+let digit4 = digits[4].querySelector("span");
+gsap.to(digit4, {
+  transform: "translateX(-100%)",
+  delay: delayTime+0.7,
+  duration: 0.5,
+})
+
+// ---------- HIDE LOADER--------------
+const hideLoader = setTimeout(()=>{
+  const loader = document.querySelector("#loader");
+  loader.style.display = "none";
+  enableScroll();
+
+  gsap.from("header, .hero", {
+    y: 500,
+    stagger: 0.05,
+    ease: CustomEase.create("mainReveal","0.85, 0, 0.15, 1"),
+    duration: 0.8,
+
+  })
+}, 3400)
+
+
+
+// ------------ CURSOR -----------------
+mainPage.addEventListener("mouseenter", ()=>{
+  cursors.forEach((cursor, index) => {
+    cursor.style.display = "block";
+  });
+})
+
+window.addEventListener("mousemove", (event)=>{
+  cursors.forEach((cursor, index) => {
+    gsap.to(cursor, {
+      top: event.clientY,
+      left: event.clientX,
+      duration: ((index)/cursors.length) *0.22,
+      ease: CustomEase.create("smooth","0.5, 1, 0.89, 1"),
+    })
+  });
+});
+
+
+// ---------------- HAMBURGER MENU ----------------
+
+splitText("menu-option");
+
+let menuBtn = document.querySelector(".menu");
+let menuOptions = document.querySelectorAll(".menu-option");
+let isActive = false;
+
 
 menuBtn.addEventListener("click", (event) => {
   isActive = !isActive

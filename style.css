@@ -6,7 +6,7 @@
   html {
     scroll-behavior: smooth;
     cursor: none;
-    background-color: black;
+    /* background-color: black; */
   }
 
 *{
