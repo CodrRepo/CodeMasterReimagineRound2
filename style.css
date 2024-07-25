@@ -6,7 +6,6 @@
   html {
     scroll-behavior: smooth;
     cursor: none;
-    /* background-color: black; */
   }
 
 *{
@@ -70,22 +69,14 @@
 
 
 .text-clip {
-  background: url('./Asserts/call\ of\ duty\ cross\ gen.webp') no-repeat center center;
-  background-size: 150%;
+  background: url('./Asserts/green\ mak\ 2.jpg') no-repeat center center;
+  background-size: 120%;
   -webkit-background-clip: text;
   background-clip: text;
+  font-weight: bold;
   color: #ffffff;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-position-x: right;
 
-}
-
-.light::after{
-  content: "";
-  position: absolute;
-  top: 0px;
-  left: 0%;
-  height: 100%;
-  width: 100%;
 }

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/x-icon" href="./Asserts/logo.jpg">
+    <link rel="icon" type="image/x-icon" href="./Asserts/logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -19,33 +19,28 @@
     
     <div id="loader" class="absolute opacity-1 z-[200] top-0 left-0 h-screen w-full flex flex-col justify-center items-center bg-[#000] overflow-hidden">
         <div class="relative overflow-hidden">
-            <h1 class="loader-text text-white text-3xl">loading</h1>
-            <h1 class="loader-text text-white text-4xl">Your Experience</h1>
+            <h1 id="loading-text-1" class="loader-text text-white text-4xl 2xl:text-5xl"><span class="">loading</span></h1>
+            <h1 id="loading-text-2" class="loader-text text-white text-5xl 2xl:text-6xl"><span class="">Your</span> <span class="relative light text-clip">Experience</span></h1>
         </div>
 
-        <div class="absolute top-[60%] left-0 flex justify-between w-full h-[30vh] mt-8">
+        <div class="absolute top-[60%] left-0 flex justify-between w-full h-[30vh] px-4">
             <div class="digit-container h-full w-[20%] flex items-center justify-center">
-                <h2 class="digit text-white text-5xl opacity-0">01</h2>
+                <h2 class="digit text-white text-5xl md:text-8xl opacity-0">01</h2>
             </div>
             <div class="count-container h-full w-[20%] flex items-center justify-center">
-                <h2 class="digit text-white text-5xl opacity-0">15</h2>
+                <h2 class="digit text-white text-5xl md:text-8xl opacity-0">15</h2>
             </div>
             <div class="count-container h-full w-[20%] flex items-center justify-center">
-                <h2 class="digit text-white text-5xl opacity-0">35</h2>
+                <h2 class="digit text-white text-5xl md:text-8xl opacity-0">35</h2>
             </div>
             <div class="count-container h-full w-[20%] flex items-center justify-center">
-                <h2 class="digit text-white text-5xl opacity-0">70</h2>
+                <h2 class="digit text-white text-5xl md:text-8xl opacity-0">70</h2>
             </div>
             <div class="count-container h-full w-[20%] flex items-center justify-center">
-                <h2 class="digit text-white text-5xl opacity-0 overflow-hidden"><span class="inline-block">100</span></h2>
+                <h2 class="digit text-white text-5xl md:text-8xl opacity-0 overflow-hidden"><span class="inline-block">100</span></h2>
             </div>
         </div>
     </div>
-    
-
-    
-    <!-- <div id="loader" class="absolute top-0 left-0 z-[200] h-screen opacity-1 w-full bg-[#0d0d0d] pointer-events-none cursor-default">
-    </div> -->
 
     <div id="main" class="bg-black min-h-screen relative w-full overflow-hidden z-[150]">
         <div data-scroll data-scroll-sticky data-scroll-target="#main" class="cursor hidden bg-white h-5 w-5 2xl:h-9 2xl:w-9 rounded-full -translate-y-[50%] -ml-2 -mt-2 fixed z-[999999999] pointer-none top-0 left-0"></div>
@@ -60,7 +55,7 @@
             <div data-scroll data-scroll-sticky data-scroll-target="#main" class="cursor hidden bg-white h-5 w-5 2xl:h-9 2xl:w-9 rounded-full -translate-y-[50%] -ml-2 -mt-2 fixed z-[999999999] pointer-none top-0 left-0"></div>
 
         
-        <div class="hamburger-menu translate-x-[100%] z-[240] bg-[#0d0d0d] absolute text-white top-0 right-0 h-screen w-[100%]  pt-[10vh] pl-8 lg:pt-[14vh] lg:pl-[12vh] pr-4">
+        <div class="hamburger-menu z-[270] translate-x-[100%] bg-[#0d0d0d] absolute text-white top-0 right-0 h-screen w-[100%]  pt-[10vh] pl-8 lg:pt-[14vh] lg:pl-[12vh] pr-4">
             <h2 class="menu-option text-white text-6xl 2xl:text-8xl 2xl:py-7 border-b-[1px] 2xl:border-b-[2px] border-[#575757] leading-snug tracking-tigher">play</h2>
             <h2 class="menu-option text-white text-6xl 2xl:text-8xl 2xl:py-7 border-b-[1px] 2xl:border-b-[2px] border-[#575757] leading-snug tracking-tigher">Discover</h2>
             <h2 class="menu-option text-white text-6xl 2xl:text-8xl 2xl:py-7 border-b-[1px] 2xl:border-b-[2px] border-[#575757] leading-snug tracking-tigher">Create</h2>
@@ -68,9 +63,9 @@
             <h2 class="menu-option text-white text-6xl 2xl:text-8xl 2xl:py-7 border-b-[1px] 2xl:border-b-[2px] border-[#575757] leading-snug tracking-tigher">Distribute</h2>
         </div>
 
-        <header class="text-white z-[260] relative family-monda flex justify-between items-center h-[8vh] lg:h-[12vh] border-y-[1px] border-[#575757]">
+        <header class="text-white z-[280] relative family-monda flex justify-between items-center h-[8vh] lg:h-[12vh] border-y-[1px] border-[#575757]">
             <div class="logo border-r-[1px] h-full w-[4.5rem] 2xl:w-[6.8rem] border-[#575757] flex items-center justify-center">
-                <img class="w-8 object-cover" src="./Asserts/logo.jpg" alt="logo" />
+                <img class="w-8 object-cover" src="./Asserts/logo.png" alt="logo" />
             </div>
 
             <div class="progress-bar-container h-full items-center flex justify-between px-4 border-r-[1px] border-[#575757]">
@@ -268,39 +263,39 @@
                 <div class="footer-top-left w-[60%]">
                     <h2 class="text-[#B7B7B7] text-xl 2xl:text-[2.8vh]">Resources</h2>
 
-                    <div class="links flex flex-wrap  gap-1 mt-2">
-                        <h3 class="whitespace-nowrap w-[12rem] 2xl:w-[18rem] 2xl:text-[2.5vh]"><a href="#">Support-A-Creator</a></h3>
-                        <h3 class="whitespace-nowrap w-[12rem] 2xl:w-[18rem] 2xl:text-[2.5vh]"><a href="#">Fan Art Policy</a></h3>
-                        <h3 class="whitespace-nowrap w-[12rem] 2xl:w-[18rem] 2xl:text-[2.5vh]"><a href="#">Online Services</a></h3>
-                        <h3 class="whitespace-nowrap w-[12rem] 2xl:w-[18rem] 2xl:text-[2.5vh]"><a href="#">Distribute on Epic Games</a></h3>
-                        <h3 class="whitespace-nowrap w-[12rem] 2xl:w-[18rem] 2xl:text-[2.5vh]"><a href="#">UX Research</a></h3>
-                        <h3 class="whitespace-nowrap w-[12rem] 2xl:w-[18rem] 2xl:text-[2.5vh]"><a href="#">Community Rules</a></h3>
-                        <h3 class="whitespace-nowrap w-[12rem] 2xl:w-[18rem] 2xl:text-[2.5vh]"><a href="#">Careers</a></h3>
-                        <h3 class="whitespace-nowrap w-[12rem] 2xl:w-[18rem] 2xl:text-[2.5vh]"><a href="#">Store EULA</a></h3>
-                        <h3 class="whitespace-nowrap w-[12rem] 2xl:w-[18rem] 2xl:text-[2.5vh]"><a href="#">Epic Newsroom</a></h3>
-                        <h3 class="whitespace-nowrap w-[12rem] 2xl:w-[18rem] 2xl:text-[2.5vh]"><a href="#">Company</a></h3>
+                    <div class="links flex flex-wrap gap-1 mt-2">
+                        <h3 class="whitespace-nowrap w-[11rem] text-lg 2xl:w-[20rem] 2xl:text-[2.5vh]"><a href="#">Support-A-Creator</a></h3>
+                        <h3 class="whitespace-nowrap w-[11rem] text-lg 2xl:w-[20rem] 2xl:text-[2.5vh]"><a href="#">Fan Art Policy</a></h3>
+                        <h3 class="whitespace-nowrap w-[11rem] text-lg 2xl:w-[20rem] 2xl:text-[2.5vh]"><a href="#">Online Services</a></h3>
+                        <h3 class="whitespace-nowrap w-[11rem] text-lg 2xl:w-[20rem] 2xl:text-[2.5vh]"><a href="#">UX Research</a></h3>
+                        <h3 class="whitespace-nowrap w-[11rem] text-lg 2xl:w-[20rem] 2xl:text-[2.5vh]"><a href="#">Community Rules</a></h3>
+                        <h3 class="whitespace-nowrap w-[11rem] text-lg 2xl:w-[20rem] 2xl:text-[2.5vh]"><a href="#">Careers</a></h3>
+                        <h3 class="whitespace-nowrap w-[11rem] text-lg 2xl:w-[20rem] 2xl:text-[2.5vh]"><a href="#">Store EULA</a></h3>
+                        <h3 class="whitespace-nowrap w-[11rem] text-lg 2xl:w-[20rem] 2xl:text-[2.5vh]"><a href="#">Epic Newsroom</a></h3>
+                        <h3 class="whitespace-nowrap w-[11rem] text-lg 2xl:w-[20rem] 2xl:text-[2.5vh]"><a href="#">Company</a></h3>
+                        <h3 class="whitespace-nowrap w-[11rem] text-lg 2xl:w-[20rem] 2xl:text-[2.5vh]"><a href="#">Distribute</a></h3>
                     </div>
 
                     <h2 class="text-[#B7B7B7] text-xl 2xl:text-[2.8vh] mt-8">Made By Epic Games</h2>
 
                     <div class="links flex flex-wrap gap-1 mt-2">
-                        <h3 class="whitespace-nowrap w-[12rem] 2xl:w-[18rem] 2xl:text-[2.5vh]"><a href="">Battle Breakers</a></h3>
-                        <h3 class="whitespace-nowrap w-[12rem] 2xl:w-[18rem] 2xl:text-[2.5vh]"><a href="">Robo Recall</a></h3>
-                        <h3 class="whitespace-nowrap w-[12rem] 2xl:w-[18rem] 2xl:text-[2.5vh]"><a href="">Fortnite</a></h3>
-                        <h3 class="whitespace-nowrap w-[12rem] 2xl:w-[18rem] 2xl:text-[2.5vh]"><a href="">Shadow Complex</a></h3>
-                        <h3 class="whitespace-nowrap w-[12rem] 2xl:w-[18rem] 2xl:text-[2.5vh]"><a href="">Infinity Blade</a></h3>
-                        <h3 class="whitespace-nowrap w-[12rem] 2xl:w-[18rem] 2xl:text-[2.5vh]"><a href="">Unreal Tournament</a></h3>
+                        <h3 class="whitespace-nowrap w-[11rem] text-lg 2xl:w-[18rem] 2xl:text-[2.5vh]"><a href="">Battle Breakers</a></h3>
+                        <h3 class="whitespace-nowrap w-[11rem] text-lg 2xl:w-[18rem] 2xl:text-[2.5vh]"><a href="">Robo Recall</a></h3>
+                        <h3 class="whitespace-nowrap w-[11rem] text-lg 2xl:w-[18rem] 2xl:text-[2.5vh]"><a href="">Fortnite</a></h3>
+                        <h3 class="whitespace-nowrap w-[11rem] text-lg 2xl:w-[18rem] 2xl:text-[2.5vh]"><a href="">Shadow Complex</a></h3>
+                        <h3 class="whitespace-nowrap w-[11rem] text-lg 2xl:w-[18rem] 2xl:text-[2.5vh]"><a href="">Infinity Blade</a></h3>
+                        <h3 class="whitespace-nowrap w-[11rem] text-lg 2xl:w-[18rem] 2xl:text-[2.5vh]"><a href="">Unreal Tournament</a></h3>
                     </div>
 
                 </div>
 
                 <div class="footer-top-right w-[40%]">
                     <div class="footer-logos flex gap-5">
-                        <img class="h-16 2xl:h-28" src="./Asserts/logo.jpg" alt="">
+                        <img class="h-16 2xl:h-28" src="./Asserts/logo.png" alt="">
                         <img class="h-16 2xl:h-28" src="./Asserts/Unreal Engine Dense.svg" alt="">
                     </div>
 
-                    <h4 class="text-sm 2xl:text-[2.3vh] 2xl:leading-snug mt-5">© 2024, Epic Games, Inc. All rights reserved. Epic, Epic Games, the Epic Games logo, Fortnite, the Fortnite logo, Unreal, Unreal Engine, the Unreal Engine logo, Unreal Tournament, and the Unreal Tournament logo are trademarks or registered trademarks of Epic Games, Inc. in the United States of America and elsewhere. Other brands or product names are the trademarks of their respective owners.</h4>
+                    <h4 class="2xl:text-[2.3vh] 2xl:leading-snug mt-5">© 2024, Epic Games, Inc. All rights reserved. Epic, Epic Games, the Epic Games logo, Fortnite, the Fortnite logo, Unreal, Unreal Engine, the Unreal Engine logo, Unreal Tournament, and the Unreal Tournament logo are trademarks or registered trademarks of Epic Games, Inc. in the United States of America and elsewhere. Other brands or product names are the trademarks of their respective owners.</h4>
                 </div>
             </div>
 
@@ -309,9 +304,9 @@
                     <div class="social-Media px-2 2xl:px-4 2xl:py-8 py-1 flex justify-between border-[1px] border-[#575757] h-[20vh]">
                         <div class="heading flex flex-col justify-between">
                             <h3 class="text-xl 2xl:text-[3vh]">Facebook</h3>
-                            <h3 class="text-[#B7B7B7] 2xl:text-[2.5vh]">let's connect</h3>
+                            <h3 class="text-[#B7B7B7] text-xl 2xl:text-[2.5vh]">let's connect</h3>
                         </div>
-                        <i class="ri-facebook-box-fill text-3xl 2xl:text-[11vh] 2xl:rotate-[-10deg] self-end 2xl:self-center"></i>
+                        <i class="ri-facebook-box-fill text-3xl md:text-4xl 2xl:text-[11vh] 2xl:rotate-[-10deg] self-end 2xl:self-center"></i>
                     </div>
                     <h2 class="mt-2 2xl:text-[2.5vh]"><a href="#">Terms of Service</a></h2>
                 </div>
@@ -319,9 +314,9 @@
                     <div class="social-Media px-2 2xl:px-4 2xl:py-8 py-1 flex justify-between border-[1px] border-[#575757] h-[20vh]">
                         <div class="heading flex flex-col justify-between">
                             <h3 class="text-xl 2xl:text-[3vh]">youtube</h3>
-                            <h3 class="text-[#B7B7B7] 2xl:text-[2.5vh]">stay up to date</h3>
+                            <h3 class="text-[#B7B7B7] text-xl 2xl:text-[2.5vh]">stay up to date</h3>
                         </div>
-                        <i class="ri-youtube-fill text-3xl 2xl:text-[11vh] 2xl:rotate-[-10deg] self-end 2xl:self-center"></i>
+                        <i class="ri-youtube-fill text-3xl md:text-4xl 2xl:text-[11vh] 2xl:rotate-[-10deg] self-end 2xl:self-center"></i>
                     </div>
                     <h2 class="mt-2 2xl:text-[2.5vh]"><a href="#">Privacy Policy</a></h2>
                 </div>
@@ -329,9 +324,9 @@
                     <div class="social-Media px-2 2xl:px-4 2xl:py-8 py-1 flex justify-between border-[1px] border-[#575757] h-[20vh]">
                         <div class="heading flex flex-col justify-between">
                             <h3 class="text-xl 2xl:text-[3vh]">twitter</h3>
-                            <h3 class="text-[#B7B7B7] 2xl:text-[2.5vh]">know us</h3>
+                            <h3 class="text-[#B7B7B7] text-xl 2xl:text-[2.5vh]">know us</h3>
                         </div>
-                        <i class="ri-twitter-fill text-3xl 2xl:text-[11vh] 2xl:rotate-[-10deg] self-end 2xl:self-center"></i>
+                        <i class="ri-twitter-fill text-3xl md:text-4xl 2xl:text-[11vh] 2xl:rotate-[-10deg] self-end 2xl:self-center"></i>
                     </div>
                     <h2 class="mt-2 2xl:text-[2.5vh]"><a href="#">Store Refund Policy</a></h2>
                 </div>

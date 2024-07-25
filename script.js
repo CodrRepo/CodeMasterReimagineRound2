@@ -167,17 +167,25 @@ disableScroll();
 //  ------------------ LOADER ------------------
 let digits = document.querySelectorAll(".digit");
 let t1 = gsap.timeline();
-let delayTime = 0;
+let delayTime = 2.8;
+
+gsap.from("#loading-text-1, #loading-text-2 span", {
+  opacity: 0,
+  duration: 1,
+  stagger: 0.8,
+})
+
+
 digits.forEach((digit, index) => {
   gsap.to(digit, {
     opacity: 1,
-    duration: 0.2,
+    duration: 0.5,
     delay: delayTime,
   })
 
   index>0 && gsap.to(digits[index-1], {
     opacity: 0,
-    duration: 0.2,
+    duration: 0.4,
     delay: delayTime,
   })
 
@@ -190,12 +198,22 @@ gsap.to(".loader-text", {
   duration: 0.5,
 })
 
-console.log(digits[4].querySelector("span"));
 let digit4 = digits[4].querySelector("span");
+
 gsap.to(digit4, {
   transform: "translateX(-100%)",
   delay: delayTime+0.7,
   duration: 0.5,
+})
+
+gsap.to(".light", {
+  backgroundColor: '#000',
+  boxShadow:
+    `0 0 140px 90px #000,
+    0 0 100px 60px rgba(0, 0, 0, 0),
+    0 0 140px 90px rgba(0, 0, 0, 0)`,
+  duration: 1,
+  delay: delayTime+0.7,
 })
 
 // ---------- HIDE LOADER--------------
@@ -211,12 +229,12 @@ const hideLoader = setTimeout(()=>{
     duration: 0.8,
 
   })
-}, 3400)
+}, 6500)
 
 
 
 // ------------ CURSOR -----------------
-mainPage.addEventListener("mouseenter", ()=>{
+window.innerWidth > 680 && mainPage.addEventListener("mouseenter", ()=>{
   cursors.forEach((cursor, index) => {
     cursor.style.display = "block";
   });
@@ -346,18 +364,18 @@ otherCategoriesData.forEach((element, index)=>{
                   <h2>${headingArr[1]}<h2/>
                 </div>
                 <div class="oGameListContainer flex justify-between mt-3 md:mt-0  h-full w-full md:w-[70%] lg:pr-[10vh] gap-2 overflow-auto">
-                    <div class="w-full md:w-[50vh] lg:w-[33.33%] shrink-0 p-2 relative item category h-full flex flex-col justify-center items-center">
-                        <img src="${element.gameList[0].image}" class="absolute h-full w-full left-0 right-0 object-cover object-top" alt="">
+                    <div class="w-full md:w-[50vh] border-[1px] border-[#272727] lg:w-[33.33%] shrink-0 p-2 relative item category h-full flex flex-col justify-center items-center">
+                        <img src="${element.gameList[0].image}" class="absolute h-full w-full left-0 right-0 object-cover ${index == 1 && 'lg:opacity-0'} object-top" alt="">
                         <h2 class="text-xl 2xl:text-3xl text-center">${element.gameList[0].title}</h2>
                     </div>
 
-                    <div class="w-full md:w-[50vh] lg:w-[33.33%] shrink-0 p-2 relative item category h-full flex flex-col justify-center items-center">
-                        <img src="${element.gameList[1].image}" class="absolute h-full w-full left-0 right-0 object-cover  lg:opacity-0 object-top" alt="">
+                    <div class="w-full md:w-[50vh] border-[1px] border-[#272727] lg:w-[33.33%] shrink-0 p-2 relative item category h-full flex flex-col justify-center items-center">
+                        <img src="${element.gameList[1].image}" class="absolute h-full w-full left-0 right-0 object-cover lg:opacity-0 object-top" alt="">
                         <h2 class="text-xl 2xl:text-3xl text-center">${element.gameList[1].title}</h2>
                     </div>
 
-                    <div class="w-full md:w-[50vh] lg:w-[33.33%] shrink-0 p-2 relative item category h-full flex flex-col justify-center items-center">
-                        <img src="${element.gameList[2].image}" class="absolute h-full w-full left-0 right-0 object-cover  lg:opacity-0 object-top" alt="">
+                    <div class="w-full md:w-[50vh] border-[1px] border-[#272727] lg:w-[33.33%] shrink-0 p-2 relative item category h-full flex flex-col justify-center items-center">
+                        <img src="${element.gameList[2].image}" class="absolute h-full w-full left-0 right-0 object-cover ${index != 1 && 'lg:opacity-0'} object-top" alt="">
                         <h2 class="text-xl 2xl:text-3xl text-center">${element.gameList[2].title}</h2>
                     </div>
     
@@ -448,7 +466,6 @@ sliders.forEach((slider) => {
     isDown = true;
     slider.classList.add('active');
     startX = e.pageX - slider.offsetLeft;
-    console.log(startX);
     scrollLeft = slider.scrollLeft;
   });
 
@@ -520,9 +537,6 @@ function findRotation(targetElement){
             
             // Convert radians to degrees
             const degrees = radians * (180 / Math.PI);
-            
-            // Log the rotation degree
-            console.log(`Rotation Degree: ${degrees}deg`);
 }
 
 const fGameCards = document.querySelectorAll('.f-game-card');
