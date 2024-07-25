@@ -142,57 +142,57 @@ function splitText(textClassName) {
 
 
 //  ------------------ LOADER ------------------
-let digits = document.querySelectorAll(".digit");
-let t1 = gsap.timeline();
-let delayTime = 0;
-digits.forEach((digit, index) => {
-  gsap.to(digit, {
-    opacity: 1,
-    duration: 0.2,
-    delay: delayTime,
-  })
+// let digits = document.querySelectorAll(".digit");
+// let t1 = gsap.timeline();
+// let delayTime = 0;
+// digits.forEach((digit, index) => {
+//   gsap.to(digit, {
+//     opacity: 1,
+//     duration: 0.2,
+//     delay: delayTime,
+//   })
 
-  index>0 && gsap.to(digits[index-1], {
-    opacity: 0,
-    duration: 0.2,
-    delay: delayTime,
-  })
+//   index>0 && gsap.to(digits[index-1], {
+//     opacity: 0,
+//     duration: 0.2,
+//     delay: delayTime,
+//   })
 
-  delayTime += 0.3;
-});
+//   delayTime += 0.3;
+// });
 
-gsap.to(".loader-text", {
-  transform: "translateX(-100%)",
-  delay: delayTime+0.7,
-  duration: 0.5,
-})
+// gsap.to(".loader-text", {
+//   transform: "translateX(-100%)",
+//   delay: delayTime+0.7,
+//   duration: 0.5,
+// })
 
-console.log(digits[4].querySelector("span"));
-let digit4 = digits[4].querySelector("span");
-gsap.to(digit4, {
-  transform: "translateX(-100%)",
-  delay: delayTime+0.7,
-  duration: 0.5,
-})
+// console.log(digits[4].querySelector("span"));
+// let digit4 = digits[4].querySelector("span");
+// gsap.to(digit4, {
+//   transform: "translateX(-100%)",
+//   delay: delayTime+0.7,
+//   duration: 0.5,
+// })
 
 // ---------- HIDE LOADER--------------
-const hideLoader = setTimeout(()=>{
-  const loader = document.querySelector("#loader");
+// const hideLoader = setTimeout(()=>{
+//   const loader = document.querySelector("#loader");
 
-  gsap.from(mainPage, {
-    onStart: ()=>{
-      loader.style.display = "none";
-    },
+//   gsap.from(mainPage, {
+//     onStart: ()=>{
+//       loader.style.display = "none";
+//     },
 
-    y: 400,
-    duration: 0.7,
-    ease: "power4.in-out",
+//     y: 400,
+//     duration: 0.7,
+//     ease: "power4.in-out",
 
-    onComplete: ()=>{
-      document.querySelector("header").style.borderColor = 'black black #575757 black';
-    },
-  })
-}, 3400)
+//     onComplete: ()=>{
+//       document.querySelector("header").style.borderColor = 'black black #575757 black';
+//     },
+//   })
+// }, 3400)
 
 
 
